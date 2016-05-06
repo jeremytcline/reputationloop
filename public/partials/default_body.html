@@ -1,0 +1,80 @@
+<div ng-controller = "ctrlContent" >
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Business Info</h3>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid" >
+                <div class="row">
+                    <div class="col-md-1 label1">Name</div>
+                    <div class="col-md-11">{{business_info.business_name}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 label1">Address</div>
+                    <div class="col-md-11" ng-bind-html="business_info.business_address"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 label1">Phone</div>
+                    <div class="col-md-11">{{business_info.business_phone}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 label1">Rating</div>
+                    <div class="col-md-11">{{business_info.total_rating.total_avg_rating}} ({{business_info.total_rating.total_no_of_reviews}} reviews) </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 label1">URL</div>
+                    <div class="col-md-11"><a ng-href="{{business_info.external_page_url}}" target="_blank">{{business_info.external_page_url}}</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 label1">Review URL</div>
+                    <div class="col-md-11"><a ng-href="{{business_info.external_url}}" target="_blank">{{business_info.external_url}}</a></div>
+                </div>
+            </div>
+            <br/>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Reviews</h3>
+                </div>
+                <div ng-include="'/partials/pagination.html'"></div>
+                <div ng-repeat="(key, r) in reviews">
+                    <div class="panel panel-default panel-review">
+                        <div class="panel-body">
+                            <div class="container-fluid" >
+                                <div class="row">
+                                    <div class="col-md-2 label1">Customer Name</div>
+                                    <div class="col-md-10">{{r.customer_name}} {{r.customer_last_name}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 label1">Date Submitted</div>
+                                    <div class="col-md-10">{{r.date_of_submission | date:"MM/dd/yyyy" }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 label1">Description</div> 
+                                    <div class="col-md-10">{{r.description}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 label1">Rating</div>
+                                    <div class="col-md-10">{{r.rating}} of 5 </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 label1">Source</div>
+                                    <div class="col-md-10">{{r.review_source}}</a></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 label1">Review URL</div>
+                                    <div class="col-md-10"><a ng-href="{{r.review_url}}" target="_blank">{{r.review_url}}</a></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 label1">Customer URL</div>
+                                    <div class="col-md-10"><a ng-href="{{r.customer_url}}" target="_blank">{{r.customer_url}}</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-include="'/partials/pagination.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

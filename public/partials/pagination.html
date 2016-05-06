@@ -1,0 +1,14 @@
+<div class="pagination container" ng-show="showPagination">
+    <div class="row">
+        <div class="col-md-1">
+            <input class="btn btn-primary" type="button" value="Previous" ng-disabled="disablePrev" ng-click="prevPage()">
+        </div>
+        <div class="col-md-1">
+            <input class="btn btn-primary" type="button" value="Next" ng-disabled="disableNext"  ng-click="nextPage()">
+
+        </div>
+        <div class="col-md-2">
+            Page {{pgLabel+1}} of {{pageTotal}} <img src="/img/loading.gif" height="20" ng-show="showProgress"/>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+body {
+    padding-top: 70px;
+}
+.main-body {
+    padding: 15px 25px;
+}
+.panel-review {
+    margin: 15px;
+}
+.label1 {
+    font-weight: bold;
+}
+.pagination {
+    margin: 15px;
+}
